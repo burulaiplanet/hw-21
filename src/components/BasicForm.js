@@ -33,16 +33,7 @@ return{
   isValidTwoInput:prevState.lastNameInputValue.trim().length>9,
   isValiThreeInput:prevState.emailInputValue.includes('@')
 }
-return {
-  isValidOneInput:'',
-  firstNameValue:'',
-
-  isValidTwoInput:'',
-  lastNameInputValue:'',
-
-  isValiThreeInput:'',
-  emailInputValue:'',
-}
+return prevState
 }
 
 const BasicForm = () => {
