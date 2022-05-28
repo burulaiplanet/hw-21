@@ -1,20 +1,20 @@
 import { useReducer} from 'react'
 
-// const [state, dispatch]=useReducer(func, initState)
+
 
 const inputChangeReducer = (prevState, action) => {
 	if (action.type === 'ONE_INPUT') {
 		return {
 			...prevState,
 			firstNameValue: action.firstNameValue,
-			isValidOneInput: prevState.firstNameValue.trim().length > 8,
+			isValidOneInput: prevState.firstNameValue.length < 8,
 		}
 	}
 	if (action.type === 'TWO_INPUT') {
 		return {
 			...prevState,
 			lastNameInputValue: action.lastNameInputValue,
-			isValidTwoInput: prevState.lastNameInputValue.trim().length > 9,
+			isValidTwoInput: prevState.lastNameInputValue.length <9,
 		}
 	}
 	if (action.type === 'THREE_INPUT') {
@@ -29,8 +29,8 @@ const inputChangeReducer = (prevState, action) => {
 	if (action.type === 'INPUTS_BLUR')
 		return {
 			...prevState,
-			isValidOneInput: prevState.firstNameValue.trim().length > 8,
-			isValidTwoInput: prevState.lastNameInputValue.trim().length > 9,
+			isValidOneInput: prevState.firstNameValue.length <8,
+			isValidTwoInput: prevState.lastNameInputValue.length <9,
 			isValiThreeInput: prevState.emailInputValue.includes('@'),
 		}
 	return prevState
@@ -96,6 +96,7 @@ const BasicForm = () => {
 						id='name'
 						onBlur={validateIputsHandler}
 					/>
+					 {!inputState.isValidOneInput && <p>Should not be more than eight characters</p>}
 				</div>
 				<div
 					className={
@@ -111,6 +112,7 @@ const BasicForm = () => {
 						id='name'
 						onBlur={validateIputsHandler}
 					/>
+					{!inputState.isValidTwoInput && <p>should not be more than nine characters</p>}
 				</div>
 			</div>
 			<div
@@ -127,6 +129,7 @@ const BasicForm = () => {
 					id='name'
 					onBlur={validateIputsHandler}
 				/>
+				{!inputState.isValiThreeInput && <p>Not entered @</p>}
 			</div>
 			<div className='form-actions'>
 				<button >Submit</button>
