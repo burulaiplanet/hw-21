@@ -129,11 +129,11 @@ const BasicForm = () => {
 					id='name'
 					onBlur={validateIputsHandler}
 				/>
-<<<<<<< HEAD
+
 				{!inputState.isValiThreeInput && <p>Not entered @</p>}
-=======
+
 				{!inputState.isValidTwoInput && <p>Not entered @</p>}
->>>>>>> ead3f6bf089a0d89fbf18f828da43bf877b457ef
+
 			</div>
 			<div className='form-actions'>
 				<button >Submit</button>
@@ -143,8 +143,3 @@ const BasicForm = () => {
 }
 
 export default BasicForm
-<<<<<<< HEAD
-=======
-
-
->>>>>>> ead3f6bf089a0d89fbf18f828da43bf877b457ef
