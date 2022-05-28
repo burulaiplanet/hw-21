@@ -22,7 +22,7 @@ const inputChangeReducer = (prevState, action) => {
 		return {
 			...prevState,
 			emailInputValue: action.emailInputValue,
-			isValiThreeInput: prevState.emailInputValue.includes('@'),
+			isValiThreeInput: action.emailInputValue.includes('@'),
 		}
 	}
 
